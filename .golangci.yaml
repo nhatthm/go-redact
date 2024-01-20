@@ -21,6 +21,7 @@ linters:
   enable-all: true
   disable:
     - deadcode
+    - depguard
     - exhaustivestruct
     - exhaustruct
     - forbidigo
@@ -47,6 +48,7 @@ linters:
     - wrapcheck
 
 issues:
+  max-same-issues: 20
   exclude-use-default: false
   exclude-rules:
     - linters:

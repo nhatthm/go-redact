@@ -2,7 +2,7 @@ MODULE_NAME=redact
 
 VENDOR_DIR = vendor
 
-GOLANGCI_LINT_VERSION ?= v1.52.2
+GOLANGCI_LINT_VERSION ?= v1.55.2
 
 GO ?= go
 GOLANGCI_LINT ?= $(shell go env GOPATH)/bin/golangci-lint-$(GOLANGCI_LINT_VERSION)
@@ -34,8 +34,8 @@ test-unit:
 
 .PHONY: $(GITHUB_OUTPUT)
 $(GITHUB_OUTPUT):
-	@echo "::set-output name=MODULE_NAME::$(MODULE_NAME)"
-	@echo "::set-output name=GOLANGCI_LINT_VERSION::$(GOLANGCI_LINT_VERSION)"
+	@echo "MODULE_NAME=$(MODULE_NAME)" >>"$@"
+	@echo "GOLANGCI_LINT_VERSION=$(GOLANGCI_LINT_VERSION)" >>"$@"
 
 $(GOLANGCI_LINT):
 	@echo "$(OK_COLOR)==> Installing golangci-lint $(GOLANGCI_LINT_VERSION)$(NO_COLOR)"; \
